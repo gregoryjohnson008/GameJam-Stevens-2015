@@ -1,10 +1,10 @@
 int bgX;
 int bgSpeed;
-void scrollBackGround()
+void scrollBackground()
 {
-  if(character.xPos + character.width < width/2)
+  if(character.xPos + character.getWidth() >= width/2)
   {
-    bgSpeed = 1;
+    bgSpeed = moveVal;
     image(backGround,bgX,0);
     bgX -= bgSpeed;
     if(bgX <= -(width*2))

@@ -49,8 +49,12 @@ class Character
     {
       character = characterWalkB[animNum = (animNum + 1) % 8];
     }
-    xPos = x;
-    yPos = y; 
+    else if(dir == 'j')
+    {
+      //jumping
+    }
+    xPos = min(width/2, x);
+    yPos = min(startHeight, y); 
   }
   
   public int getWidth()
