@@ -2,8 +2,6 @@ boolean start;
 boolean main;
 boolean end;
 
-PImage backGround;
-String backGroundName = "scroll_big.png";
 int bulletAmount=15;
 float prevMillis;
 

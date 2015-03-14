@@ -5,6 +5,7 @@ class Character
   PImage characterIdle;
   PImage characterWalk[] = new PImage[9];
   PImage characterWalkB[] = new PImage[9];
+  PImage characterJump[] = new PImage[3];
   
   Character(int xPos, int yPos)
   {
@@ -17,14 +18,18 @@ class Character
    
    this.xPos = xPos;
    this.yPos = yPos;
-   characterIdle = loadImage("../art/WorldWarMech_Jughead/PNG_Exports_1x_2x/jughead_idle0001.png");
+   characterIdle = loadImage("jughead_idle0001.png");
    for(int i = 0; i < 9; i++)
    {
-     characterWalk[i] = loadImage("../art/WorldWarMech_Jughead/PNG_Exports_1x_2x/jughead_walking000" + (i+1) + ".png"); 
+     characterWalk[i] = loadImage("jughead_walking000" + (i+1) + ".png"); 
    }
    for(int i = 8, j = 0; i >= 0; i--, j++)
    {
-     characterWalkB[j] = loadImage("../art/WorldWarMech_Jughead/PNG_Exports_1x_2x/jughead_walking000" + (i+1) + ".png");
+     characterWalkB[j] = loadImage("jughead_walking000" + (i+1) + ".png");
+   }
+   for(int i = 0; i < 3; i++)
+   {
+     characterJump[i] = loadImage("hero_jumping000" + (i+1) + ".png");
    }
     character = characterIdle;
   }
@@ -52,6 +57,7 @@ class Character
     else if(dir == 'j')
     {
       //jumping
+      //character = characterJump[animNum = (animNum + 1) % 2];
     }
     xPos = min(width/2, x);
     yPos = min(startHeight, y); 

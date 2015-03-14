@@ -1,5 +1,7 @@
 int bgX;
 int bgSpeed;
+PImage backGround;
+String backGroundName = "scroll_big.png";
 void scrollBackground()
 {
   if(character.xPos + character.getWidth() >= width/2)
