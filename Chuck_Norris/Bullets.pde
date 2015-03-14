@@ -1,14 +1,18 @@
+
 class Bullet
 {
   int bulletSize = 20;
+  int bulletTime;
+  int bulletCount;
   float bulletX,bulletY;
   float bulletSpeedX, bulletSpeedY;
   
-  Bullet()
+  Bullet(float bulletX, float bulletY, float bulletSpeed)
   {
-    bulletX = -100;
-    bulletY = -100;
-    bulletSpeedX = bulletSpeedY = 0;
+    this.bulletX = bulletX;
+    this.bulletY = bulletY;
+    bulletTime = 200;
+    bulletSpeedX = bulletSpeedY = bulletSpeed;
   }
   
   void display()
@@ -20,15 +24,25 @@ class Bullet
   
   void update()
   {
-    bulletX += bulletSpeedX;
-    if(mousePressed)
+    
+    if(mousePressed && bulletSpeedX==0 && millis()-prevMillis>200)
     {
-      bulletSpeedX = 10.0;
       bulletX = bulletSize/2;
       bulletY = height/2;
+      bulletSpeedX = 10.0;
+      prevMillis = millis();
+    }
+    bulletX += bulletSpeedX;
+    if(bulletX>width)
+    {
+      bulletX=-100;
+      bulletY=-100;
+      bulletSpeedX=0;
     }
   } 
-}
+ }
+
+
     
   
   
