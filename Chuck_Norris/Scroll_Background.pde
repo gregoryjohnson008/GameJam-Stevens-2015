@@ -1,12 +1,10 @@
 int bgX;
 int bgSpeed;
-PImage backGround;
-String backGroundName = "move_back.png";
 void scrollBackGround()
 {
-  if(character.xPos + character.getWidth() >= width/2)
+  if(character.xPos + character.width < width/2)
   {
-    bgSpeed = moveVal;
+    bgSpeed = 1;
     image(backGround,bgX,0);
     bgX -= bgSpeed;
     if(bgX <= -(width*2))
